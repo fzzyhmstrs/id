@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "imbued_deco",
+  "version": "${version}",
+  "name": "Imbued Deco",
+  "description": "Adds a wide array of decorative blocks utilizing the materials of Amethyst Imbuement!",
+  "authors": [
+    "fzzyhmstrs"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/imbued-deco",
+    "issues": "https://github.com/fzzyhmstrs/id/issues",
+    "sources": "https://github.com/fzzyhmstrs/id"
+  },
+  "license": "MIT License",
+  "icon": "assets/imbued_deco/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      {
+        "adapter": "kotlin",
+        "value": "me.fzzyhmstrs.imbued_deco.ID"
+      }
+    ],
+    "client": [
+      {
+        "adapter": "kotlin",
+        "value": "me.fzzyhmstrs.imbued_deco.IDClient"
+      }
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.14.22",
+    "fabric": "*",
+    "fabric-key-binding-api-v1": "*",
+    "fabric-language-kotlin": ">=1.7.4+kotlin.1.6.21",
+    "minecraft": ">=1.20.1",
+    "java": ">=17",
+	"amethyst_imbuement": "*"
+  }
+}
