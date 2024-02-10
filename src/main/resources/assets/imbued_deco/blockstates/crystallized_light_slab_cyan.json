@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "imbued_deco:block/crystallized_light_slab_cyan"
+    },
+    "type=double": {
+      "model": "amethyst_imbuement:block/crystallized_light_cyan"
+    },
+    "type=top": {
+      "model": "imbued_deco:block/crystallized_light_slab_cyan_top"
+    }
+  }
+}

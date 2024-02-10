@@ -1,0 +1,8 @@
+{
+  "parent": "amethyst_imbuement:block/stairs",
+  "textures": {
+    "bottom": "amethyst_imbuement:block/crystallized_light_brown",
+    "side": "amethyst_imbuement:block/crystallized_light_brown",
+    "top": "amethyst_imbuement:block/crystallized_light_brown"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "imbued_deco:crystallized_light_pane_white"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "imbued_deco:blocks/crystallized_light_pane_white"
+}

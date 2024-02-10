@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "amethyst_imbuement:block/crystallized_light_orange",
+    "side": "amethyst_imbuement:block/crystallized_light_orange",
+    "top": "amethyst_imbuement:block/crystallized_light_orange"
+  }
+}

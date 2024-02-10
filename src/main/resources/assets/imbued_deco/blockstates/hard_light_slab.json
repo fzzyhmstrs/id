@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "imbued_deco:block/hard_light_slab"
+    },
+    "type=double": {
+      "model": "amethyst_imbuement:block/hard_light_block"
+    },
+    "type=top": {
+      "model": "imbued_deco:block/hard_light_slab_top"
+    }
+  }
+}

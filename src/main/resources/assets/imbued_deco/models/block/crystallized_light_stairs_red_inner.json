@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "amethyst_imbuement:block/crystallized_light_red",
+    "side": "amethyst_imbuement:block/crystallized_light_red",
+    "top": "amethyst_imbuement:block/crystallized_light_red"
+  }
+}

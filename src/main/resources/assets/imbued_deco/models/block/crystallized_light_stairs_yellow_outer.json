@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "amethyst_imbuement:block/crystallized_light_white",
+    "side": "amethyst_imbuement:block/crystallized_light_white",
+    "top": "amethyst_imbuement:block/crystallized_light_white"
+  }
+}
