@@ -1,5 +1,5 @@
 {
-  "parent": "amethyst_imbuement:block/stairs",
+  "parent": "minecraft:block/stairs",
   "textures": {
     "bottom": "amethyst_imbuement:block/hard_light_block",
     "side": "amethyst_imbuement:block/hard_light_block",

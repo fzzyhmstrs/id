@@ -1,14 +1,14 @@
 package me.fzzyhmstrs.imbued_deco.registry
 
-import me.fzzyhmstrs.amethyst_imbuement.AI
 import me.fzzyhmstrs.amethyst_imbuement.item.AiItemSettings
-import me.fzzyhmstrs.fzzy_core.coding_util.FzzyBlockSettings
 import me.fzzyhmstrs.amethyst_imbuement.registry.RegisterBlock as RegisterAi
 import me.fzzyhmstrs.fzzy_core.coding_util.FzzyPort
+import me.fzzyhmstrs.imbued_deco.ID
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
 import net.minecraft.block.*
 import net.minecraft.item.BlockItem
 import net.minecraft.item.Item
+import net.minecraft.item.ItemGroup
 import net.minecraft.util.DyeColor
 import java.util.ArrayList
 
@@ -16,7 +16,13 @@ object RegisterBlock {
 
     internal val regBlockItem: ArrayList<Item> = ArrayList(65)
 
-    fun registerAll(){}
+    val ID_GROUP: ItemGroup by lazy{
+        RegisterItemGroup.registerItemGroup()
+    }
+
+    fun registerAll(){
+        val group = ID_GROUP
+    }
 
     val HARD_LIGHT_STAIRS = registerBoth(stairsCopy(RegisterAi.HARD_LIGHT_BLOCK),"hard_light_stairs")
     val CRYSTALLIZED_LIGHT_STAIRS_WHITE = registerBoth(stairsCopy(RegisterAi.CRYSTALLIZED_LIGHT_WHITE),"crystallized_light_stairs_white")
@@ -103,17 +109,17 @@ object RegisterBlock {
     private fun<T: Block> registerBoth(block:T, path: String): T{
         val item = BlockItem(block, AiItemSettings())
         regBlockItem.add(item)
-        FzzyPort.ITEM.register(AI.identity(path),item)
-        return FzzyPort.BLOCK.register(AI.identity(path),block)
+        FzzyPort.ITEM.register(ID.identity(path),item)
+        return FzzyPort.BLOCK.register(ID.identity(path),block)
     }
 
     private fun<T: Block> registerBlock(block:T, path: String): T{
-        return FzzyPort.BLOCK.register(AI.identity(path),block)
+        return FzzyPort.BLOCK.register(ID.identity(path),block)
     }
 
     private fun<T: Item> registerItem(item:T, path: String): T{
         regBlockItem.add(item)
-        return FzzyPort.ITEM.register(AI.identity(path),item)
+        return FzzyPort.ITEM.register(ID.identity(path),item)
     }
 
     private fun stairsCopy(block: Block): StairsBlock{

@@ -1,3 +1,7 @@
 {
-	"item.amethyst_imbuement.furious_scepter": "Furious Scepter"
+	"item.imbued_deco.todo": "Todo",
+
+	"block.imbued_deco.todo": "Todo",
+
+	"itemGroup.imbued_deco.id_group": "Imbued Deco"
 }
