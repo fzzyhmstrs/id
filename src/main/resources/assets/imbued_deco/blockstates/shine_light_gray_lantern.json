@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "imbued_deco:block/shine_light_gray_lantern"
+    },
+    "hanging=true": {
+      "model": "minecraft:block/shine_light_gray_lantern_hanging"
+    }
+  }
+}

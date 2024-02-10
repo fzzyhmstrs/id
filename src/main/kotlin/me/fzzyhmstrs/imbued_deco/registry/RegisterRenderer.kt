@@ -59,5 +59,23 @@ object RegisterRenderer {
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.CRYSTALLIZED_LIGHT_PANE_PURPLE, RenderLayer.getTranslucent())
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.CRYSTALLIZED_LIGHT_PANE_MAGENTA, RenderLayer.getTranslucent())
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.CRYSTALLIZED_LIGHT_PANE_PINK, RenderLayer.getTranslucent())
+
+        BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.SHINE_LIGHT_LANTERN, RenderLayer.getCutout())
+        BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.SHINE_LIGHT_WHITE_LANTERN, RenderLayer.getCutout())
+        BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.SHINE_LIGHT_LIGHT_GRAY_LANTERN, RenderLayer.getCutout())
+        BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.SHINE_LIGHT_GRAY_LANTERN, RenderLayer.getCutout())
+        BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.SHINE_LIGHT_BLACK_LANTERN, RenderLayer.getCutout())
+        BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.SHINE_LIGHT_BROWN_LANTERN, RenderLayer.getCutout())
+        BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.SHINE_LIGHT_RED_LANTERN, RenderLayer.getCutout())
+        BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.SHINE_LIGHT_ORANGE_LANTERN, RenderLayer.getCutout())
+        BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.SHINE_LIGHT_YELLOW_LANTERN, RenderLayer.getCutout())
+        BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.SHINE_LIGHT_LIME_LANTERN, RenderLayer.getCutout())
+        BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.SHINE_LIGHT_GREEN_LANTERN, RenderLayer.getCutout())
+        BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.SHINE_LIGHT_CYAN_LANTERN, RenderLayer.getCutout())
+        BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.SHINE_LIGHT_LIGHT_BLUE_LANTERN, RenderLayer.getCutout())
+        BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.SHINE_LIGHT_BLUE_LANTERN, RenderLayer.getCutout())
+        BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.SHINE_LIGHT_PURPLE_LANTERN, RenderLayer.getCutout())
+        BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.SHINE_LIGHT_MAGENTA_LANTERN, RenderLayer.getCutout())
+        BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.SHINE_LIGHT_PINK_LANTERN, RenderLayer.getCutout())
     }
 }

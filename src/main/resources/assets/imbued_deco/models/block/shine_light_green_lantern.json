@@ -1,0 +1,7 @@
+{
+  "parent": "imbued_deco:block/template_shine_light_lantern",
+  "textures": {
+    "light": "amethyst_imbuement:block/shine_light_green",
+    "lantern": "imbued_deco:block/shine_light_lantern"
+  }
+}

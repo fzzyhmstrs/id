@@ -1,7 +1,7 @@
 package me.fzzyhmstrs.imbued_deco.registry
 
 import me.fzzyhmstrs.amethyst_imbuement.item.AiItemSettings
-import me.fzzyhmstrs.amethyst_imbuement.registry.RegisterBlock as RegisterAi
+import me.fzzyhmstrs.amethyst_imbuement.registry.RegisterBlock
 import me.fzzyhmstrs.fzzy_core.coding_util.FzzyPort
 import me.fzzyhmstrs.imbued_deco.ID
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
@@ -24,41 +24,41 @@ object RegisterBlock {
         val group = ID_GROUP
     }
 
-    val HARD_LIGHT_STAIRS = registerBoth(stairsCopy(RegisterAi.HARD_LIGHT_BLOCK),"hard_light_stairs")
-    val CRYSTALLIZED_LIGHT_STAIRS_WHITE = registerBoth(stairsCopy(RegisterAi.CRYSTALLIZED_LIGHT_WHITE),"crystallized_light_stairs_white")
-    val CRYSTALLIZED_LIGHT_STAIRS_LIGHT_GRAY = registerBoth(stairsCopy(RegisterAi.CRYSTALLIZED_LIGHT_LIGHT_GRAY),"crystallized_light_stairs_light_gray")
-    val CRYSTALLIZED_LIGHT_STAIRS_GRAY = registerBoth(stairsCopy(RegisterAi.CRYSTALLIZED_LIGHT_GRAY),"crystallized_light_stairs_gray")
-    val CRYSTALLIZED_LIGHT_STAIRS_BLACK = registerBoth(stairsCopy(RegisterAi.CRYSTALLIZED_LIGHT_BLACK),"crystallized_light_stairs_black")
-    val CRYSTALLIZED_LIGHT_STAIRS_BROWN = registerBoth(stairsCopy(RegisterAi.CRYSTALLIZED_LIGHT_BROWN),"crystallized_light_stairs_brown")
-    val CRYSTALLIZED_LIGHT_STAIRS_RED = registerBoth(stairsCopy(RegisterAi.CRYSTALLIZED_LIGHT_RED),"crystallized_light_stairs_red")
-    val CRYSTALLIZED_LIGHT_STAIRS_ORANGE = registerBoth(stairsCopy(RegisterAi.CRYSTALLIZED_LIGHT_ORANGE),"crystallized_light_stairs_orange")
-    val CRYSTALLIZED_LIGHT_STAIRS_YELLOW = registerBoth(stairsCopy(RegisterAi.CRYSTALLIZED_LIGHT_YELLOW),"crystallized_light_stairs_yellow")
-    val CRYSTALLIZED_LIGHT_STAIRS_LIME = registerBoth(stairsCopy(RegisterAi.CRYSTALLIZED_LIGHT_LIME),"crystallized_light_stairs_lime")
-    val CRYSTALLIZED_LIGHT_STAIRS_GREEN = registerBoth(stairsCopy(RegisterAi.CRYSTALLIZED_LIGHT_GREEN),"crystallized_light_stairs_green")
-    val CRYSTALLIZED_LIGHT_STAIRS_CYAN = registerBoth(stairsCopy(RegisterAi.CRYSTALLIZED_LIGHT_CYAN),"crystallized_light_stairs_cyan")
-    val CRYSTALLIZED_LIGHT_STAIRS_LIGHT_BLUE = registerBoth(stairsCopy(RegisterAi.CRYSTALLIZED_LIGHT_LIGHT_BLUE),"crystallized_light_stairs_light_blue")
-    val CRYSTALLIZED_LIGHT_STAIRS_BLUE = registerBoth(stairsCopy(RegisterAi.CRYSTALLIZED_LIGHT_BLUE),"crystallized_light_stairs_blue")
-    val CRYSTALLIZED_LIGHT_STAIRS_PURPLE = registerBoth(stairsCopy(RegisterAi.CRYSTALLIZED_LIGHT_PURPLE),"crystallized_light_stairs_purple")
-    val CRYSTALLIZED_LIGHT_STAIRS_MAGENTA = registerBoth(stairsCopy(RegisterAi.CRYSTALLIZED_LIGHT_MAGENTA),"crystallized_light_stairs_magenta")
-    val CRYSTALLIZED_LIGHT_STAIRS_PINK = registerBoth(stairsCopy(RegisterAi.CRYSTALLIZED_LIGHT_PINK),"crystallized_light_stairs_pink")
+    val HARD_LIGHT_STAIRS = registerBoth(stairsCopy(RegisterBlock.HARD_LIGHT_BLOCK),"hard_light_stairs")
+    val CRYSTALLIZED_LIGHT_STAIRS_WHITE = registerBoth(stairsCopy(RegisterBlock.CRYSTALLIZED_LIGHT_WHITE),"crystallized_light_stairs_white")
+    val CRYSTALLIZED_LIGHT_STAIRS_LIGHT_GRAY = registerBoth(stairsCopy(RegisterBlock.CRYSTALLIZED_LIGHT_LIGHT_GRAY),"crystallized_light_stairs_light_gray")
+    val CRYSTALLIZED_LIGHT_STAIRS_GRAY = registerBoth(stairsCopy(RegisterBlock.CRYSTALLIZED_LIGHT_GRAY),"crystallized_light_stairs_gray")
+    val CRYSTALLIZED_LIGHT_STAIRS_BLACK = registerBoth(stairsCopy(RegisterBlock.CRYSTALLIZED_LIGHT_BLACK),"crystallized_light_stairs_black")
+    val CRYSTALLIZED_LIGHT_STAIRS_BROWN = registerBoth(stairsCopy(RegisterBlock.CRYSTALLIZED_LIGHT_BROWN),"crystallized_light_stairs_brown")
+    val CRYSTALLIZED_LIGHT_STAIRS_RED = registerBoth(stairsCopy(RegisterBlock.CRYSTALLIZED_LIGHT_RED),"crystallized_light_stairs_red")
+    val CRYSTALLIZED_LIGHT_STAIRS_ORANGE = registerBoth(stairsCopy(RegisterBlock.CRYSTALLIZED_LIGHT_ORANGE),"crystallized_light_stairs_orange")
+    val CRYSTALLIZED_LIGHT_STAIRS_YELLOW = registerBoth(stairsCopy(RegisterBlock.CRYSTALLIZED_LIGHT_YELLOW),"crystallized_light_stairs_yellow")
+    val CRYSTALLIZED_LIGHT_STAIRS_LIME = registerBoth(stairsCopy(RegisterBlock.CRYSTALLIZED_LIGHT_LIME),"crystallized_light_stairs_lime")
+    val CRYSTALLIZED_LIGHT_STAIRS_GREEN = registerBoth(stairsCopy(RegisterBlock.CRYSTALLIZED_LIGHT_GREEN),"crystallized_light_stairs_green")
+    val CRYSTALLIZED_LIGHT_STAIRS_CYAN = registerBoth(stairsCopy(RegisterBlock.CRYSTALLIZED_LIGHT_CYAN),"crystallized_light_stairs_cyan")
+    val CRYSTALLIZED_LIGHT_STAIRS_LIGHT_BLUE = registerBoth(stairsCopy(RegisterBlock.CRYSTALLIZED_LIGHT_LIGHT_BLUE),"crystallized_light_stairs_light_blue")
+    val CRYSTALLIZED_LIGHT_STAIRS_BLUE = registerBoth(stairsCopy(RegisterBlock.CRYSTALLIZED_LIGHT_BLUE),"crystallized_light_stairs_blue")
+    val CRYSTALLIZED_LIGHT_STAIRS_PURPLE = registerBoth(stairsCopy(RegisterBlock.CRYSTALLIZED_LIGHT_PURPLE),"crystallized_light_stairs_purple")
+    val CRYSTALLIZED_LIGHT_STAIRS_MAGENTA = registerBoth(stairsCopy(RegisterBlock.CRYSTALLIZED_LIGHT_MAGENTA),"crystallized_light_stairs_magenta")
+    val CRYSTALLIZED_LIGHT_STAIRS_PINK = registerBoth(stairsCopy(RegisterBlock.CRYSTALLIZED_LIGHT_PINK),"crystallized_light_stairs_pink")
 
-    val HARD_LIGHT_SLAB = registerBoth(slabCopy(RegisterAi.HARD_LIGHT_BLOCK),"hard_light_slab")
-    val CRYSTALLIZED_LIGHT_SLAB_WHITE = registerBoth(slabCopy(RegisterAi.CRYSTALLIZED_LIGHT_WHITE),"crystallized_light_slab_white")
-    val CRYSTALLIZED_LIGHT_SLAB_LIGHT_GRAY = registerBoth(slabCopy(RegisterAi.CRYSTALLIZED_LIGHT_LIGHT_GRAY),"crystallized_light_slab_light_gray")
-    val CRYSTALLIZED_LIGHT_SLAB_GRAY = registerBoth(slabCopy(RegisterAi.CRYSTALLIZED_LIGHT_GRAY),"crystallized_light_slab_gray")
-    val CRYSTALLIZED_LIGHT_SLAB_BLACK = registerBoth(slabCopy(RegisterAi.CRYSTALLIZED_LIGHT_BLACK),"crystallized_light_slab_black")
-    val CRYSTALLIZED_LIGHT_SLAB_BROWN = registerBoth(slabCopy(RegisterAi.CRYSTALLIZED_LIGHT_BROWN),"crystallized_light_slab_brown")
-    val CRYSTALLIZED_LIGHT_SLAB_RED = registerBoth(slabCopy(RegisterAi.CRYSTALLIZED_LIGHT_RED),"crystallized_light_slab_red")
-    val CRYSTALLIZED_LIGHT_SLAB_ORANGE = registerBoth(slabCopy(RegisterAi.CRYSTALLIZED_LIGHT_ORANGE),"crystallized_light_slab_orange")
-    val CRYSTALLIZED_LIGHT_SLAB_YELLOW = registerBoth(slabCopy(RegisterAi.CRYSTALLIZED_LIGHT_YELLOW),"crystallized_light_slab_yellow")
-    val CRYSTALLIZED_LIGHT_SLAB_LIME = registerBoth(slabCopy(RegisterAi.CRYSTALLIZED_LIGHT_LIME),"crystallized_light_slab_lime")
-    val CRYSTALLIZED_LIGHT_SLAB_GREEN = registerBoth(slabCopy(RegisterAi.CRYSTALLIZED_LIGHT_GREEN),"crystallized_light_slab_green")
-    val CRYSTALLIZED_LIGHT_SLAB_CYAN = registerBoth(slabCopy(RegisterAi.CRYSTALLIZED_LIGHT_CYAN),"crystallized_light_slab_cyan")
-    val CRYSTALLIZED_LIGHT_SLAB_LIGHT_BLUE = registerBoth(slabCopy(RegisterAi.CRYSTALLIZED_LIGHT_LIGHT_BLUE),"crystallized_light_slab_light_blue")
-    val CRYSTALLIZED_LIGHT_SLAB_BLUE = registerBoth(slabCopy(RegisterAi.CRYSTALLIZED_LIGHT_BLUE),"crystallized_light_slab_blue")
-    val CRYSTALLIZED_LIGHT_SLAB_PURPLE = registerBoth(slabCopy(RegisterAi.CRYSTALLIZED_LIGHT_PURPLE),"crystallized_light_slab_purple")
-    val CRYSTALLIZED_LIGHT_SLAB_MAGENTA = registerBoth(slabCopy(RegisterAi.CRYSTALLIZED_LIGHT_MAGENTA),"crystallized_light_slab_magenta")
-    val CRYSTALLIZED_LIGHT_SLAB_PINK = registerBoth(slabCopy(RegisterAi.CRYSTALLIZED_LIGHT_PINK),"crystallized_light_slab_pink")
+    val HARD_LIGHT_SLAB = registerBoth(slabCopy(RegisterBlock.HARD_LIGHT_BLOCK),"hard_light_slab")
+    val CRYSTALLIZED_LIGHT_SLAB_WHITE = registerBoth(slabCopy(RegisterBlock.CRYSTALLIZED_LIGHT_WHITE),"crystallized_light_slab_white")
+    val CRYSTALLIZED_LIGHT_SLAB_LIGHT_GRAY = registerBoth(slabCopy(RegisterBlock.CRYSTALLIZED_LIGHT_LIGHT_GRAY),"crystallized_light_slab_light_gray")
+    val CRYSTALLIZED_LIGHT_SLAB_GRAY = registerBoth(slabCopy(RegisterBlock.CRYSTALLIZED_LIGHT_GRAY),"crystallized_light_slab_gray")
+    val CRYSTALLIZED_LIGHT_SLAB_BLACK = registerBoth(slabCopy(RegisterBlock.CRYSTALLIZED_LIGHT_BLACK),"crystallized_light_slab_black")
+    val CRYSTALLIZED_LIGHT_SLAB_BROWN = registerBoth(slabCopy(RegisterBlock.CRYSTALLIZED_LIGHT_BROWN),"crystallized_light_slab_brown")
+    val CRYSTALLIZED_LIGHT_SLAB_RED = registerBoth(slabCopy(RegisterBlock.CRYSTALLIZED_LIGHT_RED),"crystallized_light_slab_red")
+    val CRYSTALLIZED_LIGHT_SLAB_ORANGE = registerBoth(slabCopy(RegisterBlock.CRYSTALLIZED_LIGHT_ORANGE),"crystallized_light_slab_orange")
+    val CRYSTALLIZED_LIGHT_SLAB_YELLOW = registerBoth(slabCopy(RegisterBlock.CRYSTALLIZED_LIGHT_YELLOW),"crystallized_light_slab_yellow")
+    val CRYSTALLIZED_LIGHT_SLAB_LIME = registerBoth(slabCopy(RegisterBlock.CRYSTALLIZED_LIGHT_LIME),"crystallized_light_slab_lime")
+    val CRYSTALLIZED_LIGHT_SLAB_GREEN = registerBoth(slabCopy(RegisterBlock.CRYSTALLIZED_LIGHT_GREEN),"crystallized_light_slab_green")
+    val CRYSTALLIZED_LIGHT_SLAB_CYAN = registerBoth(slabCopy(RegisterBlock.CRYSTALLIZED_LIGHT_CYAN),"crystallized_light_slab_cyan")
+    val CRYSTALLIZED_LIGHT_SLAB_LIGHT_BLUE = registerBoth(slabCopy(RegisterBlock.CRYSTALLIZED_LIGHT_LIGHT_BLUE),"crystallized_light_slab_light_blue")
+    val CRYSTALLIZED_LIGHT_SLAB_BLUE = registerBoth(slabCopy(RegisterBlock.CRYSTALLIZED_LIGHT_BLUE),"crystallized_light_slab_blue")
+    val CRYSTALLIZED_LIGHT_SLAB_PURPLE = registerBoth(slabCopy(RegisterBlock.CRYSTALLIZED_LIGHT_PURPLE),"crystallized_light_slab_purple")
+    val CRYSTALLIZED_LIGHT_SLAB_MAGENTA = registerBoth(slabCopy(RegisterBlock.CRYSTALLIZED_LIGHT_MAGENTA),"crystallized_light_slab_magenta")
+    val CRYSTALLIZED_LIGHT_SLAB_PINK = registerBoth(slabCopy(RegisterBlock.CRYSTALLIZED_LIGHT_PINK),"crystallized_light_slab_pink")
 
     val HARD_LIGHT_PANE = registerBoth(PaneBlock(FabricBlockSettings.copyOf(Blocks.GLASS_PANE).breakInstantly().luminance(10)), "hard_light_pane")
     val CRYSTALLIZED_LIGHT_PANE_WHITE = registerBoth(paneCopy(DyeColor.WHITE),"crystallized_light_pane_white")
@@ -78,16 +78,36 @@ object RegisterBlock {
     val CRYSTALLIZED_LIGHT_PANE_MAGENTA = registerBoth(paneCopy(DyeColor.MAGENTA),"crystallized_light_pane_magenta")
     val CRYSTALLIZED_LIGHT_PANE_PINK = registerBoth(paneCopy(DyeColor.PINK),"crystallized_light_pane_pink")
 
+    val SHINE_LIGHT_LANTERN = registerBoth(lantern(), "shine_light_lantern")
+    val SHINE_LIGHT_WHITE_LANTERN = registerBoth(lantern(),"shine_light_white_lantern")
+    val SHINE_LIGHT_LIGHT_GRAY_LANTERN = registerBoth(lantern(),"shine_light_light_gray_lantern")
+    val SHINE_LIGHT_GRAY_LANTERN = registerBoth(lantern(),"shine_light_gray_lantern")
+    val SHINE_LIGHT_BLACK_LANTERN = registerBoth(lantern(),"shine_light_black_lantern")
+    val SHINE_LIGHT_BROWN_LANTERN = registerBoth(lantern(),"shine_light_brown_lantern")
+    val SHINE_LIGHT_RED_LANTERN = registerBoth(lantern(),"shine_light_red_lantern")
+    val SHINE_LIGHT_ORANGE_LANTERN = registerBoth(lantern(),"shine_light_orange_lantern")
+    val SHINE_LIGHT_YELLOW_LANTERN = registerBoth(lantern(),"shine_light_yellow_lantern")
+    val SHINE_LIGHT_LIME_LANTERN = registerBoth(lantern(),"shine_light_lime_lantern")
+    val SHINE_LIGHT_GREEN_LANTERN = registerBoth(lantern(),"shine_light_green_lantern")
+    val SHINE_LIGHT_CYAN_LANTERN = registerBoth(lantern(),"shine_light_cyan_lantern")
+    val SHINE_LIGHT_LIGHT_BLUE_LANTERN = registerBoth(lantern(),"shine_light_light_blue_lantern")
+    val SHINE_LIGHT_BLUE_LANTERN = registerBoth(lantern(),"shine_light_blue_lantern")
+    val SHINE_LIGHT_PURPLE_LANTERN = registerBoth(lantern(),"shine_light_purple_lantern")
+    val SHINE_LIGHT_MAGENTA_LANTERN = registerBoth(lantern(),"shine_light_magenta_lantern")
+    val SHINE_LIGHT_PINK_LANTERN = registerBoth(lantern(),"shine_light_pink_lantern")
 
-
-
-
+    val STEEL_STAIRS = registerBoth(stairsCopy(RegisterBlock.STEEL_BLOCK),"steel_stairs")
+    val STEEL_SLAB = registerBoth(slabCopy(RegisterBlock.STEEL_BLOCK),"steel_slab")
+    val STEEL_BARS = registerBoth(PaneBlock(FabricBlockSettings.copyOf(RegisterBlock.STEEL_BLOCK)), "steel_bars")
+    val CUT_STEEL_BLOCK = registerBoth(blockCopy(RegisterBlock.STEEL_BLOCK), "cut_steel_block")
+    val CUT_STEEL_STAIRS = registerBoth(stairsCopy(RegisterBlock.STEEL_BLOCK),"cut_steel_stairs")
+    val CUT_STEEL_SLAB = registerBoth(slabCopy(RegisterBlock.STEEL_BLOCK),"cut_steel_slab")
 
 
     /*
-    * Crystallized Light Stairs
-    * Crystallized Light Slabs
-    * Crystallized Light Panes < Stained Crystallized Light variants with mixes of 2 colors?
+    * X Crystallized Light Stairs
+    * X Crystallized Light Slabs
+    * X Crystallized Light Panes < Stained Crystallized Light variants with mixes of 2 colors?
     * Crystallized Light Bridge < like CrossCode laser bridges
     * Steel Stairs
     * Steel Slabs
@@ -122,6 +142,10 @@ object RegisterBlock {
         return FzzyPort.ITEM.register(ID.identity(path),item)
     }
 
+    private fun blockCopy(block: Block): Block{
+        return Block(FabricBlockSettings.copyOf(block))
+    }
+
     private fun stairsCopy(block: Block): StairsBlock{
         return StairsBlock(block.defaultState,FabricBlockSettings.copyOf(block))
     }
@@ -132,6 +156,10 @@ object RegisterBlock {
 
     private fun paneCopy(color: DyeColor): StainedGlassPaneBlock {
         return StainedGlassPaneBlock(color,FabricBlockSettings.copyOf(Blocks.GLASS_PANE).breakInstantly().luminance(10))
+    }
+
+    private fun lantern(): LanternBlock {
+        return LanternBlock(FabricBlockSettings.copyOf(Blocks.LANTERN))
     }
 
     @Suppress("unused")
