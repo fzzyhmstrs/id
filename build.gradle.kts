@@ -17,26 +17,6 @@ group = mavenGroup
 println("## Changelog for Imbued Figurines $modVersion \n\n" + log.readText())
 repositories {
     maven {
-        name = "TerraformersMC"
-        url = uri("https://maven.terraformersmc.com/")
-    }
-    maven {
-        name = "REI"
-        url = uri("https://maven.shedaniel.me")
-    }
-    maven {
-        name = "Progwml6 maven"
-        url = uri("https://dvs1.progwml6.com/files/maven/")
-    }
-    maven {
-        name = "Ladysnake Libs"
-        url = uri("https://ladysnake.jfrog.io/artifactory/mods")
-    }
-    maven {
-        name = "Patchouli Lib"
-        url = uri("https://maven.blamejared.com")
-    }
-    maven {
         name = "Modrinth"
         url = uri("https://api.modrinth.com/maven")
         content {
@@ -97,10 +77,6 @@ dependencies {
     modImplementation(":amethyst_imbuement-$aiVersion"){
         exclude("net.fabricmc.fabric-api")
     }
-
-    val meVersion: String by project
-    implementation("com.github.LlamaLad7.mixinextras:mixinextras-fabric:$meVersion")
-    annotationProcessor("com.github.LlamaLad7.mixinextras:mixinextras-fabric:$meVersion")
 }
 
 tasks {
