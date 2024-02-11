@@ -3,6 +3,7 @@
 package me.fzzyhmstrs.imbued_deco
 
 import me.fzzyhmstrs.imbued_deco.registry.RegisterBlock
+import me.fzzyhmstrs.imbued_deco.registry.RegisterEntity
 import me.fzzyhmstrs.imbued_deco.registry.RegisterRenderer
 import net.fabricmc.api.ClientModInitializer
 import net.fabricmc.api.EnvType
@@ -19,6 +20,7 @@ object ID: ModInitializer {
     val LOGGER: Logger = LoggerFactory.getLogger("imbued_deco")
     override fun onInitialize() {
         RegisterBlock.registerAll()
+        RegisterEntity.registerAll()
     }
 
     fun random(): Random {

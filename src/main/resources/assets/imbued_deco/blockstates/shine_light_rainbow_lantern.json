@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "imbued_deco:block/shine_light_rainbow_lantern"
+    },
+    "hanging=true": {
+      "model": "imbued_deco:block/shine_light_rainbow_lantern_hanging"
+    }
+  }
+}

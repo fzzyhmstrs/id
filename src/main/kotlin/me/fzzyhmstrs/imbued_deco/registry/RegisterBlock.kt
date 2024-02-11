@@ -1,14 +1,20 @@
 package me.fzzyhmstrs.imbued_deco.registry
 
 import me.fzzyhmstrs.amethyst_imbuement.item.AiItemSettings
+import me.fzzyhmstrs.amethyst_imbuement.particle.ColoredEndParticleEffect
 import me.fzzyhmstrs.amethyst_imbuement.registry.RegisterBlock
 import me.fzzyhmstrs.fzzy_core.coding_util.FzzyPort
 import me.fzzyhmstrs.imbued_deco.ID
+import me.fzzyhmstrs.imbued_deco.block.ImbuedHopperBlock
+import me.fzzyhmstrs.imbued_deco.block.ShineLightLanternBlock
+import me.fzzyhmstrs.imbued_deco.block.ShineLightRainbowLanternBlock
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
 import net.minecraft.block.*
 import net.minecraft.item.BlockItem
 import net.minecraft.item.Item
 import net.minecraft.item.ItemGroup
+import net.minecraft.particle.ParticleEffect
+import net.minecraft.particle.ParticleTypes
 import net.minecraft.util.DyeColor
 import java.util.ArrayList
 
@@ -78,23 +84,23 @@ object RegisterBlock {
     val CRYSTALLIZED_LIGHT_PANE_MAGENTA = registerBoth(paneCopy(DyeColor.MAGENTA),"crystallized_light_pane_magenta")
     val CRYSTALLIZED_LIGHT_PANE_PINK = registerBoth(paneCopy(DyeColor.PINK),"crystallized_light_pane_pink")
 
-    val SHINE_LIGHT_LANTERN = registerBoth(lantern(), "shine_light_lantern")
-    val SHINE_LIGHT_WHITE_LANTERN = registerBoth(lantern(),"shine_light_white_lantern")
-    val SHINE_LIGHT_LIGHT_GRAY_LANTERN = registerBoth(lantern(),"shine_light_light_gray_lantern")
-    val SHINE_LIGHT_GRAY_LANTERN = registerBoth(lantern(),"shine_light_gray_lantern")
-    val SHINE_LIGHT_BLACK_LANTERN = registerBoth(lantern(),"shine_light_black_lantern")
-    val SHINE_LIGHT_BROWN_LANTERN = registerBoth(lantern(),"shine_light_brown_lantern")
-    val SHINE_LIGHT_RED_LANTERN = registerBoth(lantern(),"shine_light_red_lantern")
-    val SHINE_LIGHT_ORANGE_LANTERN = registerBoth(lantern(),"shine_light_orange_lantern")
-    val SHINE_LIGHT_YELLOW_LANTERN = registerBoth(lantern(),"shine_light_yellow_lantern")
-    val SHINE_LIGHT_LIME_LANTERN = registerBoth(lantern(),"shine_light_lime_lantern")
-    val SHINE_LIGHT_GREEN_LANTERN = registerBoth(lantern(),"shine_light_green_lantern")
-    val SHINE_LIGHT_CYAN_LANTERN = registerBoth(lantern(),"shine_light_cyan_lantern")
-    val SHINE_LIGHT_LIGHT_BLUE_LANTERN = registerBoth(lantern(),"shine_light_light_blue_lantern")
-    val SHINE_LIGHT_BLUE_LANTERN = registerBoth(lantern(),"shine_light_blue_lantern")
-    val SHINE_LIGHT_PURPLE_LANTERN = registerBoth(lantern(),"shine_light_purple_lantern")
-    val SHINE_LIGHT_MAGENTA_LANTERN = registerBoth(lantern(),"shine_light_magenta_lantern")
-    val SHINE_LIGHT_PINK_LANTERN = registerBoth(lantern(),"shine_light_pink_lantern")
+    val SHINE_LIGHT_LANTERN = registerBoth(lantern(ParticleTypes.END_ROD), "shine_light_lantern")
+    val SHINE_LIGHT_RAINBOW_LANTERN = registerBoth(ShineLightRainbowLanternBlock(FabricBlockSettings.copyOf(Blocks.LANTERN)),"shine_light_rainbow_lantern")
+    val SHINE_LIGHT_LIGHT_GRAY_LANTERN = registerBoth(lantern(ColoredEndParticleEffect(DyeColor.LIGHT_GRAY)),"shine_light_light_gray_lantern")
+    val SHINE_LIGHT_GRAY_LANTERN = registerBoth(lantern(ColoredEndParticleEffect(DyeColor.GRAY)),"shine_light_gray_lantern")
+    val SHINE_LIGHT_BLACK_LANTERN = registerBoth(lantern(ColoredEndParticleEffect(DyeColor.BLACK)),"shine_light_black_lantern")
+    val SHINE_LIGHT_BROWN_LANTERN = registerBoth(lantern(ColoredEndParticleEffect(DyeColor.BROWN)),"shine_light_brown_lantern")
+    val SHINE_LIGHT_RED_LANTERN = registerBoth(lantern(ColoredEndParticleEffect(DyeColor.RED)),"shine_light_red_lantern")
+    val SHINE_LIGHT_ORANGE_LANTERN = registerBoth(lantern(ColoredEndParticleEffect(DyeColor.ORANGE)),"shine_light_orange_lantern")
+    val SHINE_LIGHT_YELLOW_LANTERN = registerBoth(lantern(ColoredEndParticleEffect(DyeColor.YELLOW)),"shine_light_yellow_lantern")
+    val SHINE_LIGHT_LIME_LANTERN = registerBoth(lantern(ColoredEndParticleEffect(DyeColor.LIME)),"shine_light_lime_lantern")
+    val SHINE_LIGHT_GREEN_LANTERN = registerBoth(lantern(ColoredEndParticleEffect(DyeColor.GREEN)),"shine_light_green_lantern")
+    val SHINE_LIGHT_CYAN_LANTERN = registerBoth(lantern(ColoredEndParticleEffect(DyeColor.CYAN)),"shine_light_cyan_lantern")
+    val SHINE_LIGHT_LIGHT_BLUE_LANTERN = registerBoth(lantern(ColoredEndParticleEffect(DyeColor.LIGHT_BLUE)),"shine_light_light_blue_lantern")
+    val SHINE_LIGHT_BLUE_LANTERN = registerBoth(lantern(ColoredEndParticleEffect(DyeColor.BLUE)),"shine_light_blue_lantern")
+    val SHINE_LIGHT_PURPLE_LANTERN = registerBoth(lantern(ColoredEndParticleEffect(DyeColor.PURPLE)),"shine_light_purple_lantern")
+    val SHINE_LIGHT_MAGENTA_LANTERN = registerBoth(lantern(ColoredEndParticleEffect(DyeColor.MAGENTA)),"shine_light_magenta_lantern")
+    val SHINE_LIGHT_PINK_LANTERN = registerBoth(lantern(ColoredEndParticleEffect(DyeColor.PINK)),"shine_light_pink_lantern")
 
     val STEEL_STAIRS = registerBoth(stairsCopy(RegisterBlock.STEEL_BLOCK),"steel_stairs")
     val STEEL_SLAB = registerBoth(slabCopy(RegisterBlock.STEEL_BLOCK),"steel_slab")
@@ -103,6 +109,7 @@ object RegisterBlock {
     val CUT_STEEL_STAIRS = registerBoth(stairsCopy(RegisterBlock.STEEL_BLOCK),"cut_steel_stairs")
     val CUT_STEEL_SLAB = registerBoth(slabCopy(RegisterBlock.STEEL_BLOCK),"cut_steel_slab")
 
+    val IMBUED_HOPPER = registerBoth(ImbuedHopperBlock(FabricBlockSettings.copyOf(Blocks.HOPPER)),"imbued_hopper")
 
     /*
     * X Crystallized Light Stairs
@@ -158,8 +165,8 @@ object RegisterBlock {
         return StainedGlassPaneBlock(color,FabricBlockSettings.copyOf(Blocks.GLASS_PANE).breakInstantly().luminance(10))
     }
 
-    private fun lantern(): LanternBlock {
-        return LanternBlock(FabricBlockSettings.copyOf(Blocks.LANTERN))
+    private fun lantern(particleEffect: ParticleEffect): LanternBlock {
+        return ShineLightLanternBlock(FabricBlockSettings.copyOf(Blocks.LANTERN),particleEffect)
     }
 
     @Suppress("unused")

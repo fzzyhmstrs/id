@@ -29,6 +29,9 @@
       }
     ]
   },
+  "mixins": [
+    "imbued_deco.mixins.json"
+  ],
   "depends": {
     "fabricloader": ">=0.14.22",
     "fabric": "*",

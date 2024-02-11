@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "imbued_deco:block/cut_steel_block",
+    "side": "imbued_deco:block/cut_steel_block",
+    "top": "imbued_deco:block/cut_steel_block"
+  }
+}

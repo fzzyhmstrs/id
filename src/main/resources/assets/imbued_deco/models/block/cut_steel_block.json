@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "imbued_deco:block/cut_steel_block"
+  }
+}

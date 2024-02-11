@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "imbued_deco:block/cut_steel_slab"
+    },
+    "type=double": {
+      "model": "imbued_deco:block/cut_steel_block"
+    },
+    "type=top": {
+      "model": "imbued_deco:block/cut_steel_slab_top"
+    }
+  }
+}

@@ -61,7 +61,7 @@ object RegisterRenderer {
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.CRYSTALLIZED_LIGHT_PANE_PINK, RenderLayer.getTranslucent())
 
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.SHINE_LIGHT_LANTERN, RenderLayer.getCutout())
-        BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.SHINE_LIGHT_WHITE_LANTERN, RenderLayer.getCutout())
+        BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.SHINE_LIGHT_RAINBOW_LANTERN, RenderLayer.getCutout())
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.SHINE_LIGHT_LIGHT_GRAY_LANTERN, RenderLayer.getCutout())
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.SHINE_LIGHT_GRAY_LANTERN, RenderLayer.getCutout())
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.SHINE_LIGHT_BLACK_LANTERN, RenderLayer.getCutout())
@@ -77,5 +77,7 @@ object RegisterRenderer {
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.SHINE_LIGHT_PURPLE_LANTERN, RenderLayer.getCutout())
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.SHINE_LIGHT_MAGENTA_LANTERN, RenderLayer.getCutout())
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.SHINE_LIGHT_PINK_LANTERN, RenderLayer.getCutout())
+
+        BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.STEEL_BARS, RenderLayer.getCutout())
     }
 }

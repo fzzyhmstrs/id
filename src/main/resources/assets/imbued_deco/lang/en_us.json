@@ -52,13 +52,31 @@
 	"block.imbued_deco.crystallized_light_pane_purple": "Purple Crystallized Light Pane",
 	"block.imbued_deco.crystallized_light_pane_magenta": "Magenta Crystallized Light Pane",
 	"block.imbued_deco.crystallized_light_pane_pink": "Pink Crystallized Light Pane",
-
+	"block.imbued_deco.shine_light_lantern": "Shine Light Lantern",
+	"block.imbued_deco.shine_light_white_lantern": "White Shine Light Lantern",
+	"block.imbued_deco.shine_light_light_gray_lantern": "Light Gray Shine Light Lantern",
+	"block.imbued_deco.shine_light_gray_lantern": "Gray Shine Light Lantern",
+	"block.imbued_deco.shine_light_black_lantern": "Black Shine Light Lantern",
+	"block.imbued_deco.shine_light_brown_lantern": "Brown Shine Light Lantern",
+	"block.imbued_deco.shine_light_red_lantern": "Red Shine Light Lantern",
+	"block.imbued_deco.shine_light_orange_lantern": "Orange Shine Light Lantern",
+	"block.imbued_deco.shine_light_yellow_lantern": "Yellow Shine Light Lantern",
+	"block.imbued_deco.shine_light_lime_lantern": "Lime Shine Light Lantern",
+	"block.imbued_deco.shine_light_green_lantern": "Green Shine Light Lantern",
+	"block.imbued_deco.shine_light_cyan_lantern": "Cyan Shine Light Lantern",
+	"block.imbued_deco.shine_light_light_blue_lantern": "Light Blue Shine Light Lantern",
+	"block.imbued_deco.shine_light_blue_lantern": "Blue Shine Light Lantern",
+	"block.imbued_deco.shine_light_purple_lantern": "Purple Shine Light Lantern",
+	"block.imbued_deco.shine_light_magenta_lantern": "Magenta Shine Light Lantern",
+	"block.imbued_deco.shine_light_pink_lantern": "Pink Shine Light Lantern",
 	"block.imbued_deco.steel_stairs": "Steel Stairs",
 	"block.imbued_deco.steel_slab": "Steel Slab",
 	"block.imbued_deco.steel_bars": "Steel Bars",
 	"block.imbued_deco.cut_steel_block": "Cut Steel Block",
 	"block.imbued_deco.cut_steel_stairs": "Cut Steel Stairs",
 	"block.imbued_deco.cut_steel_slab": "Cut Steel Slab",
+
+	"container.imbued_hopper": "Imbued Item Hopper",
 
 	"itemGroup.imbued_deco.id_group": "Imbued Deco"
 }

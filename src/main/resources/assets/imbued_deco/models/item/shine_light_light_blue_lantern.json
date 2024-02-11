@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "imbued_deco:item/shine_light_light_blue_lantern"
+  }
+}

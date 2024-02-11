@@ -4,7 +4,7 @@
       "model": "imbued_deco:block/shine_light_black_lantern"
     },
     "hanging=true": {
-      "model": "minecraft:block/shine_light_black_lantern_hanging"
+      "model": "imbued_deco:block/shine_light_black_lantern_hanging"
     }
   }
 }

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "imbued_deco:block/steel_slab"
+    },
+    "type=double": {
+      "model": "amethyst_imbuement:block/steel_block"
+    },
+    "type=top": {
+      "model": "imbued_deco:block/steel_slab_top"
+    }
+  }
+}

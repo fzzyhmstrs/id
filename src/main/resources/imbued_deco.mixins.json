@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "me.fzzyhmstrs.imbued_deco.mixins",
+  "compatibilityLevel": "JAVA_16",
+  "mixins": [
+    "HopperBlockEntityAccessor"
+  ],
+  "client": [
+  ],
+  "server": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
