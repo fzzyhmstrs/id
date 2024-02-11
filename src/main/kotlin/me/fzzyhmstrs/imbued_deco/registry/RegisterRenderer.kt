@@ -79,5 +79,7 @@ object RegisterRenderer {
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.SHINE_LIGHT_PINK_LANTERN, RenderLayer.getCutout())
 
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.STEEL_BARS, RenderLayer.getCutout())
+
+        BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.IMBUED_HOPPER, RenderLayer.getCutoutMipped())
     }
 }

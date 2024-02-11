@@ -1,6 +1,7 @@
 package me.fzzyhmstrs.imbued_deco.entity
 
 import me.fzzyhmstrs.imbued_deco.mixins.HopperBlockEntityAccessor
+import me.fzzyhmstrs.imbued_deco.registry.RegisterEntity
 import net.minecraft.block.BlockState
 import net.minecraft.block.ChestBlock
 import net.minecraft.block.HopperBlock
@@ -8,13 +9,20 @@ import net.minecraft.block.InventoryProvider
 import net.minecraft.block.entity.ChestBlockEntity
 import net.minecraft.block.entity.Hopper
 import net.minecraft.block.entity.HopperBlockEntity
+import net.minecraft.block.entity.LootableContainerBlockEntity
 import net.minecraft.entity.Entity
 import net.minecraft.entity.ItemEntity
+import net.minecraft.entity.player.PlayerInventory
+import net.minecraft.inventory.Inventories
 import net.minecraft.inventory.Inventory
 import net.minecraft.inventory.SidedInventory
 import net.minecraft.item.ItemStack
+import net.minecraft.nbt.NbtCompound
 import net.minecraft.predicate.entity.EntityPredicates
+import net.minecraft.screen.HopperScreenHandler
+import net.minecraft.screen.ScreenHandler
 import net.minecraft.text.Text
+import net.minecraft.util.collection.DefaultedList
 import net.minecraft.util.function.BooleanBiFunction
 import net.minecraft.util.math.BlockPos
 import net.minecraft.util.math.Box
@@ -25,10 +33,57 @@ import java.util.function.BooleanSupplier
 import java.util.stream.Collectors
 import java.util.stream.IntStream
 
-class ImbuedHopperBlockEntity(pos: BlockPos, state: BlockState) : HopperBlockEntity(pos, state) {
+class ImbuedHopperBlockEntity(pos: BlockPos, state: BlockState) : LootableContainerBlockEntity(RegisterEntity.IMBUED_HOPPER_BLOCK_ENTITY,pos, state), Hopper {
 
+    private var inventory = DefaultedList.ofSize(5, ItemStack.EMPTY)
     private var transferCooldown = -1
     private var lastTickTime: Long = 0
+
+    override fun readNbt(nbt: NbtCompound) {
+        super.readNbt(nbt)
+        inventory = DefaultedList.ofSize(size(), ItemStack.EMPTY)
+        if (!deserializeLootTable(nbt)) {
+            Inventories.readNbt(nbt, inventory)
+        }
+        transferCooldown = nbt.getInt("TransferCooldown")
+    }
+
+    override fun writeNbt(nbt: NbtCompound) {
+        super.writeNbt(nbt)
+        if (!serializeLootTable(nbt)) {
+            Inventories.writeNbt(nbt, inventory)
+        }
+        nbt.putInt("TransferCooldown", transferCooldown)
+    }
+
+    override fun createScreenHandler(syncId: Int, playerInventory: PlayerInventory): ScreenHandler {
+        return HopperScreenHandler(syncId, playerInventory, this)
+    }
+
+    override fun size(): Int {
+        return inventory.size
+    }
+
+    override fun removeStack(slot: Int, amount: Int): ItemStack? {
+        checkLootInteraction(null)
+        return Inventories.splitStack(this.invStackList, slot, amount)
+    }
+
+    override fun setStack(slot: Int, stack: ItemStack) {
+        checkLootInteraction(null)
+        this.invStackList[slot] = stack
+        if (stack.count > this.maxCountPerStack) {
+            stack.count = this.maxCountPerStack
+        }
+    }
+
+    override fun getInvStackList(): DefaultedList<ItemStack> {
+        return inventory
+    }
+
+    override fun setInvStackList(list: DefaultedList<ItemStack>) {
+        inventory = list
+    }
 
     private fun setTransferCooldown(transferCooldown: Int) {
         this.transferCooldown = transferCooldown
@@ -54,13 +109,25 @@ class ImbuedHopperBlockEntity(pos: BlockPos, state: BlockState) : HopperBlockEnt
         return Text.translatable("container.imbued_hopper")
     }
 
+    override fun getHopperX(): Double {
+        return pos.x.toDouble() + 0.5
+    }
+
+    override fun getHopperY(): Double {
+        return pos.y.toDouble() + 0.5
+    }
+
+    override fun getHopperZ(): Double {
+        return pos.z.toDouble() + 0.5
+    }
+
     companion object {
         fun serverTick(world: World, pos: BlockPos, state: BlockState, blockEntity: ImbuedHopperBlockEntity) {
             --blockEntity.transferCooldown
             blockEntity.lastTickTime = world.time
             if (!blockEntity.needsCooldown()) {
                 blockEntity.setTransferCooldown(0)
-                insertAndExtract(world, pos, state, blockEntity, { extract(world, blockEntity) }, false)
+                insertAndExtract(world, pos, state, blockEntity, { extract(world, blockEntity, pos) }, false)
             }
         }
 
@@ -133,8 +200,8 @@ class ImbuedHopperBlockEntity(pos: BlockPos, state: BlockState) : HopperBlockEnt
             }
         }
 
-        fun extract(world: World, hopper: Hopper): Boolean {
-            val inventory = getInputInventory(world, hopper)
+        fun extract(world: World, hopper: Hopper, pos: BlockPos): Boolean {
+            val inventory = getInputInventory(world, pos)
             if (inventory != null) {
                 val direction = Direction.DOWN
                 return if (isInventoryEmpty(inventory, direction)) {
@@ -148,6 +215,8 @@ class ImbuedHopperBlockEntity(pos: BlockPos, state: BlockState) : HopperBlockEnt
                     )
                 }
             }
+            if (pos.up().let { world.getBlockState(it).isFullCube(world, it) })
+                return false
             for (itemEntity in getInputItemEntities(world, hopper)) {
                 if (!extract(hopper, itemEntity)) continue
                 return true
@@ -169,7 +238,7 @@ class ImbuedHopperBlockEntity(pos: BlockPos, state: BlockState) : HopperBlockEnt
             return false
         }
 
-        fun extract(inventory: Inventory?, itemEntity: ItemEntity): Boolean {
+        fun extract(inventory: Inventory, itemEntity: ItemEntity): Boolean {
             var bl = false
             val itemStack = itemEntity.stack.copy()
             val itemStack2 = transfer(null, inventory, itemStack, null)
@@ -285,8 +354,8 @@ class ImbuedHopperBlockEntity(pos: BlockPos, state: BlockState) : HopperBlockEnt
             return getInventoryAt(world, pos.offset(direction))
         }
 
-        private fun getInputInventory(world: World, hopper: Hopper): Inventory? {
-            return getInventoryAt(world, hopper.hopperX, hopper.hopperY + 1.0, hopper.hopperZ)
+        private fun getInputInventory(world: World, pos: BlockPos): Inventory? {
+            return getInventoryAt(world, pos.up())
         }
 
         fun getInputItemEntities(world: World, hopper: Hopper): List<ItemEntity> {
@@ -299,29 +368,22 @@ class ImbuedHopperBlockEntity(pos: BlockPos, state: BlockState) : HopperBlockEnt
             }.collect(Collectors.toList())
         }
 
-        private fun getInventoryAt(world: World, x: Double, y: Double, z: Double): Inventory? {
-            var inventory: Inventory? = null
-            val blockPos = BlockPos.ofFloored(x, y, z)
-            val blockState = world.getBlockState(blockPos)
+        fun getInventoryAt(world: World, pos: BlockPos): Inventory? {
+            val blockState = world.getBlockState(pos)
             val block = blockState.block
             if (block is InventoryProvider)
-                return (block as InventoryProvider).getInventory(blockState, world, blockPos)
-            val blockEntity = world.getBlockEntity(blockPos)
+                return (block as InventoryProvider).getInventory(blockState, world, pos)
+            val blockEntity = world.getBlockEntity(pos)
             if (blockEntity is ChestBlockEntity && block is ChestBlock)
-                return ChestBlock.getInventory(block, blockState, world, blockPos, true)
+                return ChestBlock.getInventory(block, blockState, world, pos, true)
             if (blockEntity is Inventory)
                 return blockEntity
-            var list: List<Entity?>
-            if (world.getOtherEntities(null,
-                    Box(x - 0.5, y - 0.5, z - 0.5, x + 0.5, y + 0.5, z + 0.5),
-                    EntityPredicates.VALID_INVENTORIES
-                ).also {
-                    list = it
-                }.isNotEmpty()
-            ) {
-                inventory = list[world.random.nextInt(list.size)] as Inventory?
-            }
-            return inventory
+            if (blockState.isFullCube(world, pos))
+                return null
+            return world.getOtherEntities(null,
+                Box(pos.x.toDouble(), pos.y.toDouble(), pos.z.toDouble(), pos.x + 1.0, pos.y + 1.0, pos.z + 1.0),
+                EntityPredicates.VALID_INVENTORIES
+            ).takeIf { it.isNotEmpty() }?.random() as Inventory?
         }
 
         private fun canMergeItems(first: ItemStack, second: ItemStack): Boolean {
