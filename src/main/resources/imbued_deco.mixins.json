@@ -3,7 +3,8 @@
   "package": "me.fzzyhmstrs.imbued_deco.mixins",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
-    "HopperBlockEntityAccessor"
+    "HopperBlockEntityAccessor",
+    "PotionItemMixin"
   ],
   "client": [
   ],

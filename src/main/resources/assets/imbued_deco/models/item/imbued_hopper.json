@@ -1,3 +1,6 @@
 {
-  "parent": "imbued_deco:block/imbued_hopper"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "imbued_deco:item/imbued_hopper"
+  }
 }

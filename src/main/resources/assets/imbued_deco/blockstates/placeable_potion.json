@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "potions=1": {
+      "model": "imbued_deco:block/potion_single"
+    },
+    "potions=2": {
+      "model": "imbued_deco:block/potion_double"
+    },
+    "potions=3": {
+      "model": "imbued_deco:block/potion_triple"
+    },
+    "potions=4": {
+      "model": "imbued_deco:block/potion_quadruple"
+    }
+  }
+}

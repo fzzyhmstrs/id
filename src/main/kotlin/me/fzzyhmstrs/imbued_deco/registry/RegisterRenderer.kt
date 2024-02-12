@@ -1,6 +1,8 @@
 package me.fzzyhmstrs.imbued_deco.registry
 
+import me.fzzyhmstrs.imbued_deco.entity.PlaceablePotionBlockEntity
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry
 import net.minecraft.client.render.RenderLayer
 
 object RegisterRenderer {
@@ -81,5 +83,12 @@ object RegisterRenderer {
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.STEEL_BARS, RenderLayer.getCutout())
 
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.IMBUED_HOPPER, RenderLayer.getCutoutMipped())
+
+        BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.PLACEABLE_POTION, RenderLayer.getTranslucent())
+
+        ColorProviderRegistry.BLOCK.register({_, renderView, pos, tintIndex ->
+            if (renderView == null || pos == null) return@register -1
+            (renderView.getBlockEntity(pos) as? PlaceablePotionBlockEntity)?.getColor(tintIndex) ?: -1
+        }, RegisterBlock.PLACEABLE_POTION)
     }
 }

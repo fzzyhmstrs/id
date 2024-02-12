@@ -6,6 +6,7 @@ import me.fzzyhmstrs.amethyst_imbuement.registry.RegisterBlock
 import me.fzzyhmstrs.fzzy_core.coding_util.FzzyPort
 import me.fzzyhmstrs.imbued_deco.ID
 import me.fzzyhmstrs.imbued_deco.block.ImbuedHopperBlock
+import me.fzzyhmstrs.imbued_deco.block.PlaceablePotionBlock
 import me.fzzyhmstrs.imbued_deco.block.ShineLightLanternBlock
 import me.fzzyhmstrs.imbued_deco.block.ShineLightRainbowLanternBlock
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
@@ -109,19 +110,21 @@ object RegisterBlock {
     val CUT_STEEL_STAIRS = registerBoth(stairsCopy(RegisterBlock.STEEL_BLOCK),"cut_steel_stairs")
     val CUT_STEEL_SLAB = registerBoth(slabCopy(RegisterBlock.STEEL_BLOCK),"cut_steel_slab")
 
-    val IMBUED_HOPPER = registerBoth(ImbuedHopperBlock(FabricBlockSettings.copyOf(Blocks.HOPPER)),"imbued_hopper")
+    val IMBUED_HOPPER = registerBoth(ImbuedHopperBlock(FabricBlockSettings.copyOf(RegisterBlock.STEEL_BLOCK).nonOpaque()),"imbued_hopper")
+
+    val PLACEABLE_POTION = registerBlock(PlaceablePotionBlock(FabricBlockSettings.copyOf(Blocks.GLASS)),"placeable_potion")
 
     /*
     * X Crystallized Light Stairs
     * X Crystallized Light Slabs
     * X Crystallized Light Panes < Stained Crystallized Light variants with mixes of 2 colors?
     * Crystallized Light Bridge < like CrossCode laser bridges
-    * Steel Stairs
-    * Steel Slabs
-    * Steel Bars
+    * X Steel Stairs
+    * X Steel Slabs
+    * X Steel Bars
     * Steel Grating + stairs
     * Beryl Copper Bars
-    * Cut Steel Blocks
+    * X Cut Steel Blocks
     * Gem Storage Blocks
     * Colored Warding Candles
     * Shine Light Lanterns - Copper and Iron
