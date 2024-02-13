@@ -8,6 +8,7 @@ import net.minecraft.inventory.Inventories
 import net.minecraft.inventory.Inventory
 import net.minecraft.item.ItemStack
 import net.minecraft.item.Items
+import net.minecraft.item.PotionItem
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.potion.PotionUtil
 import net.minecraft.util.ItemScatterer
@@ -24,7 +25,7 @@ class PlaceablePotionBlockEntity(pos: BlockPos, state: BlockState) : BlockEntity
         inventory.clear()
         Inventories.readNbt(nbt, inventory)
         inventory.forEachIndexed { index, itemStack ->
-            if (itemStack.isOf(Items.POTION)){
+            if (itemStack.item is PotionItem){
                 colors[index] = PotionUtil.getColor(itemStack)
             }
         }
@@ -50,6 +51,10 @@ class PlaceablePotionBlockEntity(pos: BlockPos, state: BlockState) : BlockEntity
         return inventory[slot]
     }
 
+    fun getStacks(): DefaultedList<ItemStack>{
+        return inventory
+    }
+
     override fun removeStack(slot: Int, amount: Int): ItemStack? {
         return Inventories.splitStack(inventory, slot, amount)
     }
@@ -63,7 +68,7 @@ class PlaceablePotionBlockEntity(pos: BlockPos, state: BlockState) : BlockEntity
         if (stack.count > this.maxCountPerStack) {
             stack.count = this.maxCountPerStack
         }
-        if (stack.isOf(Items.POTION)){
+        if (stack.item is PotionItem){
             colors[slot] = PotionUtil.getColor(stack)
         }
     }

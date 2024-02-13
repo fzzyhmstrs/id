@@ -3,10 +3,10 @@
 	"ambientocclusion": false,
 	"textures": {
 		"0": "imbued_deco:block/potion_bottle",
-		"1": "imbued_deco:block/potion_1_potion",
-		"2": "imbued_deco:block/potion_2_potion",
-		"3": "imbued_deco:block/potion_3_potion",
-		"4": "imbued_deco:block/potion_4_potion",
+		"1": "imbued_deco:block/potion_1",
+		"2": "imbued_deco:block/potion_2",
+		"3": "imbued_deco:block/potion_3",
+		"4": "imbued_deco:block/potion_4",
 		"particle": "imbued_deco:block/potion_bottle"
 	},
 	"elements": [

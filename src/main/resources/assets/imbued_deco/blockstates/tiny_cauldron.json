@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "potion=false": {
+      "model": "imbued_deco:block/tiny_cauldron"
+    },
+    "potion=true": {
+      "model": "imbued_deco:block/tiny_cauldron_full"
+    }
+  }
+}

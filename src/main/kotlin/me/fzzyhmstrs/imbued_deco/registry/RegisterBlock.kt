@@ -5,10 +5,7 @@ import me.fzzyhmstrs.amethyst_imbuement.particle.ColoredEndParticleEffect
 import me.fzzyhmstrs.amethyst_imbuement.registry.RegisterBlock
 import me.fzzyhmstrs.fzzy_core.coding_util.FzzyPort
 import me.fzzyhmstrs.imbued_deco.ID
-import me.fzzyhmstrs.imbued_deco.block.ImbuedHopperBlock
-import me.fzzyhmstrs.imbued_deco.block.PlaceablePotionBlock
-import me.fzzyhmstrs.imbued_deco.block.ShineLightLanternBlock
-import me.fzzyhmstrs.imbued_deco.block.ShineLightRainbowLanternBlock
+import me.fzzyhmstrs.imbued_deco.block.*
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
 import net.minecraft.block.*
 import net.minecraft.item.BlockItem
@@ -113,6 +110,8 @@ object RegisterBlock {
     val IMBUED_HOPPER = registerBoth(ImbuedHopperBlock(FabricBlockSettings.copyOf(RegisterBlock.STEEL_BLOCK).nonOpaque()),"imbued_hopper")
 
     val PLACEABLE_POTION = registerBlock(PlaceablePotionBlock(FabricBlockSettings.copyOf(Blocks.GLASS)),"placeable_potion")
+
+    val TINY_CAULDRON = registerBoth(TinyCauldronBlock(FabricBlockSettings.copyOf(Blocks.CAULDRON)),"tiny_cauldron")
 
     /*
     * X Crystallized Light Stairs

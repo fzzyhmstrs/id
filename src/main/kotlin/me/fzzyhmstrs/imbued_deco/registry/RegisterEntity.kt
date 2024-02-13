@@ -5,6 +5,7 @@ import me.fzzyhmstrs.fzzy_core.coding_util.FzzyPort
 import me.fzzyhmstrs.fzzy_core.entity_util.EntityBuilder
 import me.fzzyhmstrs.imbued_deco.entity.ImbuedHopperBlockEntity
 import me.fzzyhmstrs.imbued_deco.entity.PlaceablePotionBlockEntity
+import me.fzzyhmstrs.imbued_deco.entity.TinyCauldronBlockEntity
 import net.minecraft.block.entity.BlockEntity
 import net.minecraft.block.entity.BlockEntityType
 
@@ -16,6 +17,7 @@ object RegisterEntity: EntityBuilder() {
 
     val IMBUED_HOPPER_BLOCK_ENTITY = buildBlockEntity({ p, s -> ImbuedHopperBlockEntity(p, s) }, RegisterBlock.IMBUED_HOPPER).register("imbued_hopper_entity")
     val PLACEABLE_POTION_BLOCK_ENTITY = buildBlockEntity({ p, s -> PlaceablePotionBlockEntity(p, s) }, RegisterBlock.PLACEABLE_POTION).register("placeable_potion_entity")
+    val TINY_CAULDRON_BLOCK_ENTITY = buildBlockEntity({ p, s -> TinyCauldronBlockEntity(p, s) }, RegisterBlock.TINY_CAULDRON).register("tiny_cauldron_entity")
 
 
     fun registerAll(){}

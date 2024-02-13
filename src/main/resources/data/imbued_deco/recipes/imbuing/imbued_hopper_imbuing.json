@@ -1,0 +1,47 @@
+{
+  "type": "amethyst_imbuement:imbuing",
+  "imbueA": {
+    "item": "minecraft:amethyst_shard"
+  },
+  "imbueB": {
+    "item": "minecraft:amethyst_shard"
+  },
+  "imbueC": {
+    "item": "minecraft:amethyst_shard"
+  },
+  "imbueD": {
+    "item": "minecraft:amethyst_shard"
+  },
+  "craftA": {
+	"tag": "c:steel_ingots"
+  },
+  "craftB": {
+	"item": "minecraft:redstone_block"
+  },
+  "craftC": {
+    "tag": "c:steel_ingots"
+  },
+  "craftD": {
+    "tag": "c:steel_ingots"
+  },
+  "craftE": {
+	"item": "minecraft:hopper"
+  },
+  "craftF": {
+    "tag": "c:steel_ingots"
+  },
+  "craftG": {
+	"item": "amethyst_imbuement:beryl_copper_ingot"
+  },
+  "craftH": {
+    "tag": "c:steel_ingots"
+  },
+  "craftI": {
+	"item": "amethyst_imbuement:beryl_copper_ingot"
+  },
+  "title": "Imbued Hopper",
+  "cost": 17,
+  "resultA": "imbued_deco:imbued_hopper",
+  "countA": 1
+}
+

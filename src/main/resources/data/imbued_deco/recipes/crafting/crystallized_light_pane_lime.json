@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "amethyst_imbuement:crystallized_light_lime"
+    }
+  },
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 16,
+    "item": "imbued_deco:crystallized_light_pane_lime"
+  },
+  "show_notification": true
+}

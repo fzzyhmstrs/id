@@ -3,7 +3,7 @@
 	"ambientocclusion": false,
 	"textures": {
 		"0": "imbued_deco:block/potion_bottle",
-		"1": "imbued_deco:block/potion_1_potion",
+		"1": "imbued_deco:block/potion_1",
 		"particle": "imbued_deco:block/potion_bottle"
 	},
 	"elements": [

@@ -1,6 +1,7 @@
 package me.fzzyhmstrs.imbued_deco.registry
 
 import me.fzzyhmstrs.imbued_deco.entity.PlaceablePotionBlockEntity
+import me.fzzyhmstrs.imbued_deco.entity.TinyCauldronBlockEntity
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry
 import net.minecraft.client.render.RenderLayer
@@ -90,5 +91,10 @@ object RegisterRenderer {
             if (renderView == null || pos == null) return@register -1
             (renderView.getBlockEntity(pos) as? PlaceablePotionBlockEntity)?.getColor(tintIndex) ?: -1
         }, RegisterBlock.PLACEABLE_POTION)
+
+        ColorProviderRegistry.BLOCK.register({_, renderView, pos, tintindex ->
+            if (renderView == null || pos == null || tintindex != 1) return@register -1
+            (renderView.getBlockEntity(pos) as? TinyCauldronBlockEntity)?.getColor() ?: -1
+        }, RegisterBlock.TINY_CAULDRON)
     }
 }
