@@ -36,6 +36,15 @@ class PlaceablePotionBlockEntity(pos: BlockPos, state: BlockState) : BlockEntity
         Inventories.writeNbt(nbt, inventory, true)
     }
 
+    //need to sync to client on initialization somehow.
+    override fun toUpdatePacket(): Packet<ClientPlayPacketListener>{
+        return BlockEntityUpdateS2CPacket.create(this);
+    }
+
+    override fun toInitialChunkDataNbt(): NbtCompound{
+        return createNbt()
+    }
+
     override fun clear() {
         inventory.clear()
     }
