@@ -26,6 +26,7 @@ class TinyCauldronBlockEntity(pos: BlockPos, state: BlockState) : BlockEntity(Re
     override fun readNbt(nbt: NbtCompound) {
 
         inventory = ItemStack.fromNbt(nbt)
+        //sync this to client
         if (inventory.item is PotionItem){
             color = PotionUtil.getColor(inventory)
         }
@@ -91,6 +92,6 @@ class TinyCauldronBlockEntity(pos: BlockPos, state: BlockState) : BlockEntity(Re
     }
 
     override fun getName(): Text {
-        TODO("Not yet implemented")
+        return customName ?: super.getDisplayName()
     }
 }

@@ -18,6 +18,8 @@ import java.util.ArrayList
 
 object RegisterBlock {
 
+    //add blocks to mineable tags
+
     internal val regBlockItem: ArrayList<Item> = ArrayList(65)
 
     val ID_GROUP: ItemGroup by lazy{

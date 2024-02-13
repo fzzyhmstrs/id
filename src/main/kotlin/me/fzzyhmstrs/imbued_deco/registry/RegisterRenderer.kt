@@ -87,6 +87,8 @@ object RegisterRenderer {
 
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.PLACEABLE_POTION, RenderLayer.getTranslucent())
 
+        BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlock.TINY_CAULDRON, RenderLayer.getTranslucent())
+
         ColorProviderRegistry.BLOCK.register({_, renderView, pos, tintIndex ->
             if (renderView == null || pos == null) return@register -1
             (renderView.getBlockEntity(pos) as? PlaceablePotionBlockEntity)?.getColor(tintIndex) ?: -1

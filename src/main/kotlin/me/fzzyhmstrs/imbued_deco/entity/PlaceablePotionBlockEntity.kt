@@ -24,6 +24,7 @@ class PlaceablePotionBlockEntity(pos: BlockPos, state: BlockState) : BlockEntity
     override fun readNbt(nbt: NbtCompound) {
         inventory.clear()
         Inventories.readNbt(nbt, inventory)
+        //sync this to client
         inventory.forEachIndexed { index, itemStack ->
             if (itemStack.item is PotionItem){
                 colors[index] = PotionUtil.getColor(itemStack)
