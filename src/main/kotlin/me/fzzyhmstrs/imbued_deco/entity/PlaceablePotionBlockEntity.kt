@@ -16,10 +16,12 @@ import net.minecraft.util.collection.DefaultedList
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.World
 
+import java.util.concurrent.atomic.AtomicIntegerArray
+
 class PlaceablePotionBlockEntity(pos: BlockPos, state: BlockState) : BlockEntity(RegisterEntity.PLACEABLE_POTION_BLOCK_ENTITY,pos, state), Inventory {
 
     private var inventory = DefaultedList.ofSize(4, ItemStack.EMPTY)
-    private var colors = intArrayOf(-1, -1, -1, -1)
+    private var colors = AtomicIntegerArray(intArrayOf(-1, -1, -1, -1))
 
     override fun readNbt(nbt: NbtCompound) {
         inventory.clear()
