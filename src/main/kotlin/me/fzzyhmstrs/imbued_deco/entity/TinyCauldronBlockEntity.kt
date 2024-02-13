@@ -20,6 +20,7 @@ import net.minecraft.world.World
 class TinyCauldronBlockEntity(pos: BlockPos, state: BlockState) : BlockEntity(RegisterEntity.TINY_CAULDRON_BLOCK_ENTITY,pos, state), Inventory, Nameable {
 
     private var inventory = DefaultedList.ofSize(1, ItemStack.EMPTY)
+    @Volatile
     private var color = -1
     private var customName: Text? = null
 
