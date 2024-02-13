@@ -19,7 +19,7 @@ import net.minecraft.world.World
 
 class TinyCauldronBlockEntity(pos: BlockPos, state: BlockState) : BlockEntity(RegisterEntity.TINY_CAULDRON_BLOCK_ENTITY,pos, state), Inventory, Nameable {
 
-    private var inventory = ItemStack.EMPTY
+    private var inventory = DefaultedList.ofSize(1, ItemStack.EMPTY)
     private var color = -1
     private var customName: Text? = null
 
@@ -27,8 +27,12 @@ class TinyCauldronBlockEntity(pos: BlockPos, state: BlockState) : BlockEntity(Re
 
         inventory = ItemStack.fromNbt(nbt)
         //sync this to client
-        if (inventory.item is PotionItem){
-            color = PotionUtil.getColor(inventory)
+        inventory.clear()
+        Inventories.readNbt(nbt, inventory)
+        //sync this to client
+        if (inventory[0].item is PotionItem){
+            color = PotionUtil.getColor(inventory[0])
+        }
         }
         if (nbt.contains("CustomName", NbtElement.STRING_TYPE.toInt())) {
             customName = Text.Serializer.fromJson(nbt.getString("CustomName"))
@@ -36,14 +40,23 @@ class TinyCauldronBlockEntity(pos: BlockPos, state: BlockState) : BlockEntity(Re
     }
 
     override fun writeNbt(nbt: NbtCompound) {
-        inventory.writeNbt(nbt)
+         Inventories.writeNbt(nbt, inventory, true)
         if (customName != null) {
             nbt.putString("CustomName", Text.Serializer.toJson(customName))
         }
     }
 
+    //need to sync to client on initialization somehow.
+    override fun toUpdatePacket(): Packet<ClientPlayPacketListener>{
+        return BlockEntityUpdateS2CPacket.create(this);
+    }
+
+    override fun toInitialChunkDataNbt(): NbtCompound{
+        return createNbt()
+    }
+
     override fun clear() {
-        inventory = ItemStack.EMPTY
+        inventory.clear()
         color = -1
     }
 
@@ -52,15 +65,15 @@ class TinyCauldronBlockEntity(pos: BlockPos, state: BlockState) : BlockEntity(Re
     }
 
     override fun isEmpty(): Boolean {
-        return inventory.isEmpty
+        return inventory[0].isEmpty
     }
 
     override fun getStack(slot: Int): ItemStack {
-        return if(slot == 0) inventory else ItemStack.EMPTY
+        return if(slot == 0) inventory[0] else ItemStack.EMPTY
     }
 
     override fun removeStack(slot: Int, amount: Int): ItemStack {
-        return Inventories.splitStack(listOf(inventory), slot, amount).also { if(it.isEmpty) color = -1 }
+        return Inventories.splitStack(inventory, slot, amount).also { if(it.isEmpty) color = -1 }
     }
 
     override fun removeStack(slot: Int): ItemStack {
@@ -68,19 +81,14 @@ class TinyCauldronBlockEntity(pos: BlockPos, state: BlockState) : BlockEntity(Re
     }
 
     override fun setStack(slot: Int, stack: ItemStack) {
-        inventory = stack
-        if (inventory.item is PotionItem){
+        inventory[0] = stack
+        if (inventory[0].item is PotionItem){
             color = PotionUtil.getColor(inventory)
-        } else if (inventory.isEmpty) color = -1
+        } else if (isEmpty()) color = -1
     }
 
     override fun canPlayerUse(player: PlayerEntity?): Boolean {
         return false
-    }
-
-    fun onStateReplaced(world: World, pos: BlockPos) {
-        if (inventory.isEmpty) return
-        ItemScatterer.spawn(world, pos.x.toDouble(), pos.y.toDouble(), pos.z.toDouble(), inventory)
     }
 
     fun getColor(): Int{
