@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "imbued_deco:cut_steel_block",
+    "imbued_deco:cut_steel_stairs",
+    "imbued_deco:cut_steel_slab",
+    "imbued_deco:steel_bars",
+    "imbued_deco:steel_stairs",
+    "imbued_deco:steel_slab",
+    "imbued_deco:imbued_hopper",
+    "imbued_deco:tiny_cauldron"
+  ]
+}
+
