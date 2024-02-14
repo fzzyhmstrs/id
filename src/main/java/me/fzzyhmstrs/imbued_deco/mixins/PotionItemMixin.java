@@ -6,6 +6,7 @@ import me.fzzyhmstrs.imbued_deco.registry.RegisterBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.PotionItem;
@@ -40,6 +41,9 @@ public class PotionItemMixin {
             world.playSound(null, blockPos, SoundEvents.BLOCK_BREWING_STAND_BREW, SoundCategory.BLOCKS, 0.75f, 1.0f);
             cir.setReturnValue(ActionResult.success(world.isClient));
         } else {
+            PlayerEntity playerEntity = context.getPlayer();
+            if (playerEntity == null) return;
+            if (Direction.getEntityFacingOrder(playerEntity)[0] != Direction.DOWN) return;
             Direction side = context.getSide();
             BlockState blockState2 = world.getBlockState(blockPos.offset(side));
             BlockPos downPos = blockPos.offset(side).down();

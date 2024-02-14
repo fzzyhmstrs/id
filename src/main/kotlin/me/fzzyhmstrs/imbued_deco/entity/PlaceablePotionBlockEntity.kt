@@ -1,21 +1,23 @@
 package me.fzzyhmstrs.imbued_deco.entity
 
 import me.fzzyhmstrs.imbued_deco.registry.RegisterEntity
+import net.minecraft.block.Block
 import net.minecraft.block.BlockState
 import net.minecraft.block.entity.BlockEntity
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.inventory.Inventories
 import net.minecraft.inventory.Inventory
 import net.minecraft.item.ItemStack
-import net.minecraft.item.Items
 import net.minecraft.item.PotionItem
 import net.minecraft.nbt.NbtCompound
+import net.minecraft.network.listener.ClientPlayPacketListener
+import net.minecraft.network.packet.Packet
+import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket
 import net.minecraft.potion.PotionUtil
 import net.minecraft.util.ItemScatterer
 import net.minecraft.util.collection.DefaultedList
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.World
-
 import java.util.concurrent.atomic.AtomicIntegerArray
 
 class PlaceablePotionBlockEntity(pos: BlockPos, state: BlockState) : BlockEntity(RegisterEntity.PLACEABLE_POTION_BLOCK_ENTITY,pos, state), Inventory {
@@ -39,12 +41,17 @@ class PlaceablePotionBlockEntity(pos: BlockPos, state: BlockState) : BlockEntity
     }
 
     //need to sync to client on initialization somehow.
-    override fun toUpdatePacket(): Packet<ClientPlayPacketListener>{
+    override fun toUpdatePacket(): Packet<ClientPlayPacketListener> {
         return BlockEntityUpdateS2CPacket.create(this);
     }
 
     override fun toInitialChunkDataNbt(): NbtCompound{
         return createNbt()
+    }
+
+    private fun updateListeners() {
+        this.markDirty()
+        world?.updateListeners(getPos(), cachedState, cachedState, Block.NOTIFY_ALL)
     }
 
     override fun clear() {

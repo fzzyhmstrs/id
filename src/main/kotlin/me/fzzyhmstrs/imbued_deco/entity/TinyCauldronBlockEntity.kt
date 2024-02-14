@@ -1,6 +1,7 @@
 package me.fzzyhmstrs.imbued_deco.entity
 
 import me.fzzyhmstrs.imbued_deco.registry.RegisterEntity
+import net.minecraft.block.Block
 import net.minecraft.block.BlockState
 import net.minecraft.block.entity.BlockEntity
 import net.minecraft.entity.player.PlayerEntity
@@ -10,12 +11,14 @@ import net.minecraft.item.ItemStack
 import net.minecraft.item.PotionItem
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.nbt.NbtElement
+import net.minecraft.network.listener.ClientPlayPacketListener
+import net.minecraft.network.packet.Packet
+import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket
 import net.minecraft.potion.PotionUtil
 import net.minecraft.text.Text
-import net.minecraft.util.ItemScatterer
 import net.minecraft.util.Nameable
+import net.minecraft.util.collection.DefaultedList
 import net.minecraft.util.math.BlockPos
-import net.minecraft.world.World
 
 class TinyCauldronBlockEntity(pos: BlockPos, state: BlockState) : BlockEntity(RegisterEntity.TINY_CAULDRON_BLOCK_ENTITY,pos, state), Inventory, Nameable {
 
@@ -26,14 +29,12 @@ class TinyCauldronBlockEntity(pos: BlockPos, state: BlockState) : BlockEntity(Re
 
     override fun readNbt(nbt: NbtCompound) {
 
-        inventory = ItemStack.fromNbt(nbt)
         //sync this to client
         inventory.clear()
         Inventories.readNbt(nbt, inventory)
         //sync this to client
         if (inventory[0].item is PotionItem){
             color = PotionUtil.getColor(inventory[0])
-        }
         }
         if (nbt.contains("CustomName", NbtElement.STRING_TYPE.toInt())) {
             customName = Text.Serializer.fromJson(nbt.getString("CustomName"))
@@ -48,12 +49,17 @@ class TinyCauldronBlockEntity(pos: BlockPos, state: BlockState) : BlockEntity(Re
     }
 
     //need to sync to client on initialization somehow.
-    override fun toUpdatePacket(): Packet<ClientPlayPacketListener>{
+    override fun toUpdatePacket(): Packet<ClientPlayPacketListener> {
         return BlockEntityUpdateS2CPacket.create(this);
     }
 
     override fun toInitialChunkDataNbt(): NbtCompound{
         return createNbt()
+    }
+
+    private fun updateListeners() {
+        this.markDirty()
+        world?.updateListeners(getPos(), cachedState, cachedState, Block.NOTIFY_ALL)
     }
 
     override fun clear() {
@@ -74,7 +80,12 @@ class TinyCauldronBlockEntity(pos: BlockPos, state: BlockState) : BlockEntity(Re
     }
 
     override fun removeStack(slot: Int, amount: Int): ItemStack {
-        return Inventories.splitStack(inventory, slot, amount).also { if(it.isEmpty) color = -1 }
+        return Inventories.splitStack(inventory, slot, amount).also {
+            if(it.isEmpty) {
+                color = -1
+                updateListeners()
+            }
+        }
     }
 
     override fun removeStack(slot: Int): ItemStack {
@@ -84,7 +95,8 @@ class TinyCauldronBlockEntity(pos: BlockPos, state: BlockState) : BlockEntity(Re
     override fun setStack(slot: Int, stack: ItemStack) {
         inventory[0] = stack
         if (inventory[0].item is PotionItem){
-            color = PotionUtil.getColor(inventory)
+            color = PotionUtil.getColor(inventory[0])
+            updateListeners()
         } else if (isEmpty()) color = -1
     }
 
