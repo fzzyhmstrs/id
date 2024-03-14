@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "CC",
+    "CC"
+  ],
+  "key": {
+    "C": {
+      "item": "amethyst_imbuement:steel_block"
+    }
+  },
+  "result": {
+    "item": "imbued_deco:cut_steel_block",
+    "count": 4
+  },
+  "show_notification": true
+}
