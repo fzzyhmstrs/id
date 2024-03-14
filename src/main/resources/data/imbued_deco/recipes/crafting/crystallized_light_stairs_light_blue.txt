@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "amethyst_imbuement:crystallized_light_light_blue"
+    }
+  },
+  "pattern": [
+    "#  "
+    "## "
+    "###"
+  ],
+  "result": {
+    "count": 4,
+    "item": "imbued_deco:crystallized_light_stairs_light_blue"
+  },
+  "show_notification": true
+}
