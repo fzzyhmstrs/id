@@ -1,0 +1,21 @@
+{
+  "type": "amethyst_imbuement:enhancing",
+  "dust": {
+    "item": "amethyst_imbuement:gem_dust"
+  },
+  "base": [
+    {
+      "item": "minecraft:lantern"
+    },
+    {
+      "item": "minecraft:soul_lantern"
+    }
+  ],
+  "addition": {
+    "item": "amethyst_imbuement:shine_light_light_gray"
+  },
+  "result": {
+    "item": "imbued_deco:shine_light_light_gray_lantern",
+    "count": 1
+  }
+}
