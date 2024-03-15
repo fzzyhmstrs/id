@@ -8,7 +8,23 @@
     "imbued_deco:steel_stairs",
     "imbued_deco:steel_slab",
     "imbued_deco:imbued_hopper",
-    "imbued_deco:tiny_cauldron"
+    "imbued_deco:tiny_cauldron",
+    "imbued_deco:shine_light_lantern",
+    "imbued_deco:shine_light_rainbow_lantern",
+    "imbued_deco:shine_light_light_gray_lantern",
+    "imbued_deco:shine_light_gray_lantern",
+    "imbued_deco:shine_light_black_lantern",
+    "imbued_deco:shine_light_brown_lantern",
+    "imbued_deco:shine_light_red_lantern",
+    "imbued_deco:shine_light_orange_lantern",
+    "imbued_deco:shine_light_yellow_lantern",
+    "imbued_deco:shine_light_lime_lantern",
+    "imbued_deco:shine_light_green_lantern",
+    "imbued_deco:shine_light_cyan_lantern",
+    "imbued_deco:shine_light_light_blue_lantern",
+    "imbued_deco:shine_light_blue_lantern",
+    "imbued_deco:shine_light_purple_lantern",
+    "imbued_deco:shine_light_magenta_lantern",
+    "imbued_deco:shine_light_pink_lantern"
   ]
 }
-
