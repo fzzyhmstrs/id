@@ -1,0 +1,21 @@
+{
+  "name": "Utility Blocks",
+  "icon": "imbued_deco:imbued_hopper",
+  "category": "amethyst_imbuement:imbued_deco",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Imbued Deco adds a few blocks can can double as decorative and functional, at least a little.$(li)Imbued Hopper: Transfers an entire stack of items at a time.$(li)Tiny Cauldron: Leetle. Stores a potion in it, emitting the potion particles when full$(li)Potion Block: Potions are placeable! The colors match the potions you place."
+    },
+    {
+      "type": "amethyst_imbuement:imbuing",
+      "unlock": "amethyst_imbuement:progression/imbuing_table",
+      "recipe": "imbued_deco:imbuing/imbued_hopper_imbuing"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "imbued_deco:crafting/tiny_cauldron",
+      "text": "$(o)Just a little boi.$()"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "Steel Blocks",
+  "icon": "imbued_deco:cut_steel_block",
+  "category": "amethyst_imbuement:imbued_deco",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Cut and shape plain steel blocks into a variety of decorative forms! Cut blocks can't be converted back, like copper. Cut blocks can also be made in the stonecutter."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "imbued_deco:crafting/cut_steel_block",
+      "recipe2": "imbued_deco:crafting/cut_steel_slab"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "imbued_deco:crafting/cut_steel_stairs",
+      "recipe2": "imbued_deco:crafting/steel_bars"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "imbued_deco:crafting/steel_slab",
+      "recipe2": "imbued_deco:crafting/steel_stairs"
+    }
+  ]
+}

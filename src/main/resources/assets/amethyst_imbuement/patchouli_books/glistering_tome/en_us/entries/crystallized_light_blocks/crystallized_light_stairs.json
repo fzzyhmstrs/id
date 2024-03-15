@@ -1,0 +1,16 @@
+{
+  "name": "Crystallized Stairs",
+  "icon": "imbued_deco:crystallized_light_stairs_green",
+  "category": "amethyst_imbuement:imbued_deco",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Crystallized light blocks, in stair form!. The act like typical stairs, but break instantly and emit some light."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "imbued_deco:crafting/crystallized_light_stairs_green",
+      "text": "Recipe shown is for Green Crystallized Light, but similar panes can be made with any color, or with hard light blocks."
+    }
+  ]
+}

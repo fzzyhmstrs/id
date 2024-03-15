@@ -1,0 +1,17 @@
+{
+  "name": "Shine Light Lanterns",
+  "icon": "imbued_deco:shine_light_lantern",
+  "category": "amethyst_imbuement:imbued_deco",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "An ephemeral shine light carefully inserted into a lantern housing will provide it's characteristic soft glow without being quite as fragile as normal."
+    },
+    {
+      "type": "amethyst_imbuement:enhancing",
+      "recipe": "imbued_deco:enhancing/shine_light_lantern",
+      "unlock": "amethyst_imbuement:progression/crystal_altar",
+      "text": "This enhancing recipe is for 'plain' Shine Lights, but lanterns can be similarly enhanced with any color of shine light."
+    }
+  ]
+}
