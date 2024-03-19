@@ -228,7 +228,7 @@ class ImbuedHopperBlockEntity(pos: BlockPos, state: BlockState) : LootableContai
             val itemStack = inventory.getStack(slot)
             if (!itemStack.isEmpty && canExtract(hopper, inventory, itemStack, slot, side)) {
                 val itemStack2 = itemStack.copy()
-                val itemStack3 = transfer(inventory, hopper, inventory.removeStack(slot, 1), null)
+                val itemStack3 = transfer(inventory, hopper, inventory.removeStack(slot, itemStack2.count), null)
                 if (itemStack3.isEmpty) {
                     inventory.markDirty()
                     return true
