@@ -7,9 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUsageContext;
-import net.minecraft.item.PotionItem;
+import net.minecraft.item.*;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
@@ -26,6 +24,7 @@ public class PotionItemMixin {
 
     @Inject(method = "useOnBlock", at = @At("TAIL"), cancellable = true)
     private void imbued_deco_placeablePotionOnUse(ItemUsageContext context, CallbackInfoReturnable<ActionResult> cir){
+        if ((Object)this instanceof SplashPotionItem || (Object)this instanceof LingeringPotionItem) return;
         World world = context.getWorld();
         BlockPos blockPos = context.getBlockPos();
         BlockState blockState = world.getBlockState(blockPos);
