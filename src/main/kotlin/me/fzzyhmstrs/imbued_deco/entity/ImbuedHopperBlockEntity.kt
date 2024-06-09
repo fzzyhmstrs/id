@@ -168,8 +168,7 @@ class ImbuedHopperBlockEntity(pos: BlockPos, state: BlockState) : LootableContai
             for (i in 0 until inventory.size()) {
                 if (inventory.getStack(i).isEmpty) continue
                 val itemStack = inventory.getStack(i).copy()
-                val itemStack2 =
-                    HopperBlockEntity.transfer(inventory, inventory2, inventory.removeStack(i), direction)
+                val itemStack2 = HopperBlockEntity.transfer(inventory, inventory2, inventory.removeStack(i), direction)
                 if (itemStack2.isEmpty) {
                     inventory2.markDirty()
                     return true
@@ -228,10 +227,14 @@ class ImbuedHopperBlockEntity(pos: BlockPos, state: BlockState) : LootableContai
             val itemStack = inventory.getStack(slot)
             if (!itemStack.isEmpty && canExtract(hopper, inventory, itemStack, slot, side)) {
                 val itemStack2 = itemStack.copy()
+                val initialCount = itemStack2.count
                 val itemStack3 = transfer(inventory, hopper, inventory.removeStack(slot, itemStack2.count), null)
                 if (itemStack3.isEmpty) {
                     inventory.markDirty()
                     return true
+                } else if(itemStack3.count < initialCount){
+                    inventory.setStack(slot,itemStack3)
+                    return false
                 }
                 inventory.setStack(slot, itemStack2)
             }
@@ -276,7 +279,7 @@ class ImbuedHopperBlockEntity(pos: BlockPos, state: BlockState) : LootableContai
                 itemStack = transfer(from, to, stack, i, side)
                 ++i
             }
-            return stack
+            return itemStack
         }
 
         private fun canInsert(inventory: Inventory, stack: ItemStack, slot: Int, side: Direction?): Boolean {

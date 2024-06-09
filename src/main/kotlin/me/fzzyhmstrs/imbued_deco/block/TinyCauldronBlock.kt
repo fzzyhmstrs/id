@@ -3,7 +3,6 @@ package me.fzzyhmstrs.imbued_deco.block
 import me.fzzyhmstrs.imbued_deco.entity.TinyCauldronBlockEntity
 import net.minecraft.block.*
 import net.minecraft.block.entity.BlockEntity
-import net.minecraft.block.entity.HopperBlockEntity
 import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.ItemStack

@@ -1,6 +1,5 @@
 package me.fzzyhmstrs.imbued_deco.block
 
-import me.fzzyhmstrs.imbued_deco.entity.ImbuedHopperBlockEntity
 import me.fzzyhmstrs.imbued_deco.entity.PlaceablePotionBlockEntity
 import net.minecraft.block.*
 import net.minecraft.block.entity.BlockEntity

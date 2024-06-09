@@ -3,9 +3,6 @@
 package me.fzzyhmstrs.imbued_deco.registry
 
 import me.fzzyhmstrs.amethyst_imbuement.AI
-import me.fzzyhmstrs.amethyst_imbuement.item.SpellScrollItem
-import me.fzzyhmstrs.amethyst_imbuement.spells.special.DebugAugment
-import me.fzzyhmstrs.fzzy_core.coding_util.FzzyPort
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup
 import net.minecraft.item.ItemGroup
 import net.minecraft.item.ItemStack

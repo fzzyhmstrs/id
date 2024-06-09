@@ -1,13 +1,8 @@
 package me.fzzyhmstrs.imbued_deco.block
 
-import me.fzzyhmstrs.amethyst_imbuement.block.ShineLightRainbowBlock
 import me.fzzyhmstrs.amethyst_imbuement.particle.ColoredEndParticleEffect
 import net.minecraft.block.BlockState
 import net.minecraft.block.LanternBlock
-import net.minecraft.particle.ParticleEffect
-import net.minecraft.particle.ParticleTypes
-import net.minecraft.state.property.BooleanProperty
-import net.minecraft.state.property.Properties
 import net.minecraft.util.DyeColor
 import net.minecraft.util.math.BlockPos
 import net.minecraft.util.math.random.Random

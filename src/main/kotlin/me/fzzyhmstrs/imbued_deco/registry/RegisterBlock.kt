@@ -14,7 +14,6 @@ import net.minecraft.item.ItemGroup
 import net.minecraft.particle.ParticleEffect
 import net.minecraft.particle.ParticleTypes
 import net.minecraft.util.DyeColor
-import java.util.ArrayList
 
 object RegisterBlock {
 
